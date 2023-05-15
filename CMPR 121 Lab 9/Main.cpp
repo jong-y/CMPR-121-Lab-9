@@ -1,3 +1,14 @@
+/*
+ Johnny Vo
+    CMPR 121 - Spring 2022
+    5/14/23
+
+    Lab 9
+
+    Collaboration: Susana Becerra
+
+*/
+
 #include <iostream>
 #include "DArray.h"
 
@@ -20,6 +31,7 @@ int main() {
     int index = 0;
     bool exit = false;
     DArray arr;
+    DArray otherArray;
 
     while (!exit) {
         printMenu();
@@ -49,7 +61,7 @@ int main() {
             arr.insetElementAtIndex(element, index);
             break;
         case 6:
-            DArray otherArray;
+      
             otherArray.addElement(10);
             otherArray.addElement(20);
             otherArray.addElement(30);
