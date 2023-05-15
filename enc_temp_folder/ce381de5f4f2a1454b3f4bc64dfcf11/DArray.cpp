@@ -55,7 +55,7 @@ void DArray::addElement(int newElement)
 	}
 	else
 	{
-		throw std::runtime_error("Array is full. Cannot add more elements.");
+		std::cout << "ERROR: Array is Full\n";
 	}
 }
 

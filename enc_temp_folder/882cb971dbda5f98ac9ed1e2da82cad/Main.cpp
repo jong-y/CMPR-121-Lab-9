@@ -42,12 +42,6 @@ int main() {
             std::cout << "Enter the element to add: ";
             std::cin >> element;
             arr.addElement(element);
-            try {
-                arr.addElement(element);
-            }
-            catch (const std::runtime_error& e) {
-                std::cout << "Error: " << e.what() << std::endl;
-            }
             break;
         case 2:
             std::cout << "Number of elements: " << arr.getNumberOfElements() << std::endl;
