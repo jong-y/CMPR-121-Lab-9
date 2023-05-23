@@ -21,6 +21,7 @@ void printMenu() {
     std::cout << "6. Compare arrays" << std::endl;
     std::cout << "7. Change the capacity of the array" << std::endl;
     std::cout << "8. Exit" << std::endl;
+    std::cout << "9. Lab 10" << std::endl;
     std::cout << "Enter your choice: ";
 }
 
@@ -67,10 +68,13 @@ int main() {
             arr.insetElementAtIndex(element, index);
             break;
         case 6:
-      
+
             otherArray.addElement(10);
             otherArray.addElement(20);
             otherArray.addElement(30);
+            std::cout << "Array to Compare: ";
+            otherArray.print();
+
             if (arr.compareArrays(otherArray)) {
                 std::cout << "Arrays are equal." << std::endl;
             }
@@ -88,6 +92,35 @@ int main() {
             break;
         default:
             std::cout << "Invalid choice. Please try again." << std::endl;
+            break;
+        case 9:
+            DArray arr1(10);
+            arr1.addElement(10);
+            arr1.addElement(11);
+            arr1.addElement(12);
+
+            DArray arr2(10);
+            arr2.addElement(20);
+            arr2.addElement(21);
+
+            DArray arr3(arr2); // copy constructor
+
+            arr2 = arr1;       // overloaded assignment operator
+
+            std::cout << arr2 << std::endl;   // using overloaded insertion operator
+            std::cout << arr3 << std::endl;   // using overloaded insertion operator
+
+            int index = arr2.findElement(10); // using find element
+            if (index != -1)
+            {
+                std::cout << "Key was found at index: " << index << std::endl;
+            }
+            else
+            {
+                std::cout << "Element not found" << std::endl;
+            }
+
+            std::cout << std::endl;
             break;
         }
 

@@ -13,6 +13,14 @@ private:
 public:
 	DArray();
 	DArray(int newCapacity);
+	//new stuff
+	DArray(const DArray& otherArray);
+
+	DArray& operator=(const DArray& rightside);
+
+	friend std::ostream& operator<<(std::ostream& out, const DArray& myArray);
+
+	int findElement(const int& key) const;
 
 	int getCapacity() const;
 	int getNumberOfElements() const;

@@ -27,9 +27,8 @@ int DArray::getNumberOfElements() const
 
 void DArray::setCapacity(int newCapacity)
 {
-	if (newCapacity <= capacity)
-	{
-		std::cout << "New capacity should be greater than current capcity: " << capacity << std::endl;
+	if (newCapacity <= 0) {
+		std::cout << "Invalid capacity. Capacity should be greater than zero." << std::endl;
 		return;
 	}
 
@@ -59,7 +58,7 @@ void DArray::addElement(int newElement)
 	}
 }
 
-void DArray::insetElementAtIndex(int index, int newElement)
+void DArray::insetElementAtIndex(int newElement, int index)
 {
 	if (index >= 0 && index < numOfElements)
 	{
@@ -95,6 +94,56 @@ bool DArray::compareArrays(const DArray& otherArray) const
 		}
 	}
 	return true;
+}
+//new stuff
+
+DArray::DArray(const DArray& otherArray) : a(nullptr), capacity(otherArray.capacity), numOfElements(otherArray.numOfElements)
+{
+	a = new int[otherArray.numOfElements];
+	for (int i = 0; i < numOfElements; i++)
+	{
+		a[i] = otherArray.a[i];
+	}
+}
+
+DArray& DArray::operator=(const DArray& rightside)
+{
+	if (this == &rightside)
+	{
+		return *this;
+	}
+
+	delete[] a;
+	capacity = rightside.capacity;
+	numOfElements = rightside.numOfElements;
+
+	a = new int[capacity];
+	for (int i = 0; i < numOfElements; i++)
+	{
+		a[i] = rightside.a[i];
+	}
+	return *this;
+}
+
+std::ostream& operator<<(std::ostream& out, const DArray& myArray)
+{
+	for (int i = 0; i < myArray.numOfElements; i++)
+	{
+		out << myArray.a[i] << " ";
+	}
+	return out;
+}
+
+int DArray::findElement(const int& key) const
+{
+	for (int i = 0; i < numOfElements; i++)
+	{
+		if (a[i] == key)
+		{
+			return i;
+		}
+	}
+	return -1;
 }
 
 DArray::~DArray()
